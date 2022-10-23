@@ -8,18 +8,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <div> Balance: {{ssBalance}}
-      </div>
-      <ul class="navbar-nav ms-md-auto gap-2">
 
+      <ul class="navbar-nav ms-md-auto gap-2">
+        <span class="p-2 text-success"><b>ERGO Balance:</b> {{ssBalance}}.00</span>
         <li>
-            <button class="btn btn-outline-secondary" type="button">Home</button>
+            <button class="btn btn-outline-secondary text-decoration-none" type="button">Home</button>
         </li>
         <li>
-            <button class="btn btn-outline-secondary" type="button">About</button>
+            <button class="btn btn-outline-secondary text-decoration-none" type="button">About</button>
         </li>
         <li>
-            <button class="btn btn-outline-secondary" type="button">Contact</button>
+            <button class="btn btn-outline-secondary text-decoration-none" type="button">Contact</button>
         </li>
         <li>
             <div class="btn-group" role="group">
@@ -27,8 +26,8 @@
       Profile
     </button>
     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <li><a class="dropdown-item" href="#">Setting</a></li>
-      <li><a class="dropdown-item" href="#">Logout</a></li>
+      <li><a class="dropdown-item text-decoration-none" href="#">Setting</a></li>
+      <li><a class="dropdown-item text-decoration-none" @click="SubmitLogout()">Logout</a></li>
     </ul>
   </div>
         </li>
@@ -44,6 +43,8 @@
 
 <script>
 
+
+
 export default {
     name: "vNavbar",
 
@@ -54,14 +55,16 @@ export default {
       ssBalance () {
         return sessionStorage.getItem('ssBalance')
       }
+        },
+    
+    methods: {
+      SubmitLogout () {
+        sessionStorage.clear('userInfo'),
+        sessionStorage.clear('ssBalance')
+        this.$router.push('/Login')
         }
+  },
 }
-
-
-
-
-// sessionStorage.getItem('userInfo');
-// console.log('userInfo')
 </script>
 
 <style>

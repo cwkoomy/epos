@@ -9,7 +9,7 @@
 
   <div class="row">
     <div class="col-2"><vSidebar /></div>
-    <div class="col-9"><vMain /></div>
+    <div class="col-10"><vMain /></div>
   </div>
 </div>
 

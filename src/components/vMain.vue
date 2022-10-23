@@ -4,12 +4,12 @@
     <div class="row">
         <div class="col-lg-3 col-sm-6">
             <label for="startDate">Start</label>
-            <input id="startDate" class="form-control" type="date" />
+            <input id="startDate" class="form-control" type="date" value ="2022-01-01"/>
             <span id="startDateSelected"></span>
         </div>
         <div class="col-lg-3 col-sm-6">
             <label for="endDate">End</label>
-            <input id="endDate" class="form-control" type="date" />
+            <input id="endDate" class="form-control" type="date" value ="2022-10-23"/>
             <span id="endDateSelected"></span>
         </div>
         <div class="col-lg-3 col-sm-6">
@@ -31,12 +31,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row" >1</th>
-      <td>342134</td>
-      <td>1500 epos</td>
-      <td>25638452</td>
-      <td>09-07-2022 18:53:30</td>
+    <tr v-for="dtdetail of dtdetails" :key="dtdetail.ID">
+      <!-- <th scope="row" >1</th> -->
+      <th scope="row" >{{dtdetail.ID}}</th>
+      <td>{{dtdetail.MerchantID}}</td>
+      <td>{{dtdetail.TxAmount +'.00'}}</td>
+      <td>{{dtdetail.TxCategory}}</td>
+      <td>{{dtdetail.CreatedDateTime}}</td>
     </tr>
     <!-- <tr>
       <th scope="row">2</th>
@@ -65,7 +66,7 @@
 
       data() {
         return {
-          todos:[]
+          dtdetails:[]
         };
       },
   
@@ -75,8 +76,8 @@
 
       methods: {
           DateSearch () {
-        //  var vstartDateSelected = document.getElementById("startDate").value;
-        //  var vendDateSelected = document.getElementById("endDate").value;
+         var vstartDateSelected = document.getElementById("startDate").value;
+         var vendDateSelected = document.getElementById("endDate").value;
       //    console.log(vendDateSelected) datepicker format 2022-10-23, api format 10-23-2022
       axios
         .get('http://118.107.242.54:8018/wsMerchant/Service1.asmx/TxMaster', {
@@ -84,15 +85,15 @@
                 'Content-Type': 'application/json',
               },
           params: {
-              DateFrom: '08-28-2022',
-              DateTo: '09-28-2022'
+              DateFrom: vstartDateSelected,
+              DateTo: vendDateSelected
           },
         })
         .then((res) => {
           if (res.data.RECORDS[0].ReturnCode === '1') {
 
                 console.log(res)
-                this.todos = res.data;
+                this.dtdetails = res.data.TxMaster;
 
                 console.log('Success');
               } else {
