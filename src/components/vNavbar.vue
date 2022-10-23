@@ -8,6 +8,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
+      <div> Welcome,
+      </div>
       <ul class="navbar-nav ms-md-auto gap-2">
 
         <li>
@@ -46,6 +48,11 @@ export default {
     name: "vNavbar"
 }
 
+
+
+
+// sessionStorage.getItem('userInfo');
+// console.log('userInfo')
 </script>
 
 <style>

@@ -17,7 +17,8 @@
     "jquery": "^3.6.1",
     "popper.js": "^1.16.1",
     "vue": "^3.2.13",
-    "vue-router": "^4.1.5"
+    "vue-router": "^4.1.5",
+    "vue-sessionstorage": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

@@ -64,7 +64,7 @@
                   'userInfo',
                   JSON.stringify(res.data.Merchant)
                 )
-                console.log(res)
+                // console.log(res)
                 console.log('Success');
                 this.$router.push('/')
               } else {
