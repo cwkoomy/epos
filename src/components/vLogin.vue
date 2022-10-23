@@ -109,6 +109,10 @@ import axios from 'axios';
                 'userInfo',
                 JSON.stringify(res.data.Merchant)
               )
+              sessionStorage.setItem(
+                'ssBalance',
+                JSON.stringify(res.data.Merchant[0].EPOSBalance)
+              )
               console.log(res)
               console.log('Success');
               this.$router.push('/')

@@ -18,7 +18,8 @@
     "popper.js": "^1.16.1",
     "vue": "^3.2.13",
     "vue-router": "^4.1.5",
-    "vue-sessionstorage": "^1.0.0"
+    "vue-sessionstorage": "^1.0.0",
+    "vue3-datepicker": "^0.3.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

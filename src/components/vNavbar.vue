@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <div> Welcome,
+      <div> Balance: {{ssBalance}}
       </div>
       <ul class="navbar-nav ms-md-auto gap-2">
 
@@ -45,7 +45,16 @@
 <script>
 
 export default {
-    name: "vNavbar"
+    name: "vNavbar",
+
+    computed: {
+      userInfo (){
+                return sessionStorage.getItem('userInfo')
+            },
+      ssBalance () {
+        return sessionStorage.getItem('ssBalance')
+      }
+        }
 }
 
 
